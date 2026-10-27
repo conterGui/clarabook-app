@@ -1,32 +1,36 @@
-# React + TypeScript + Vite
+# ClaraBook 📚🍂
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Estante pessoal de livros com reviews — estilo Letterboxd, mas **sem** parte social: só você, seus livros e suas notas.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React + Vite + TypeScript**
+- **Tailwind CSS v4** + **shadcn/ui**
+- **Open Library API** (busca/us catalog — ilimitada, sem key) com filtro de edições em inglês
+- **Google Translate `gtx`** (tradução PT na hora de exibir, com cache local)
+- Dados salvos no **localStorage** do navegador
 
-## React Compiler
+## Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🔍 Buscar livros (capa, título, autor, ano)
+- 📚 Estante visual com capas e abas: Todos / Lendo / Lidos / Quero ler
+- ✍️ Review pessoal: nota em estrelas (1–5) + texto livre + status
+- ⚙️ Recomendações: motor local que mistura seus autores favoritos + assuntos recorrentes (subjects da Open Library), ponderados pelas suas notas
+- 🇧🇷 Títulos e autores traduzidos em tempo real
+- 🍂 Tema de outono (bege / marrom / musgo / terracota)
 
-## Expanding the Oxlint configuration
+## Rodar
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```sh
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Estrutura
+
+```
+src/
+  lib/          # API de livros, tradução, motor de recomendações
+  components/   # ui (shadcn), dia log de busca, dialog de review
+  App.tsx       # estante, abas e integração
+```
