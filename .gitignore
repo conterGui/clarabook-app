@@ -1,0 +1,9 @@
+# deps
+node_modules/
+# build
+dist/
+# editor
+.vscode/
+*.local
+.DS_Store
+*.log
